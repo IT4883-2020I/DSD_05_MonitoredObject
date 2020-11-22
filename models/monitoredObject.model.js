@@ -9,6 +9,16 @@ const MonitoredObjectSchema = new Schema ({
         replies: this
     },
 
+    areaMonitored: {
+        type: Schema.Types.ObjectId,
+        ref: 'AreaMonitored'
+    },
+
+    category: {
+        type: Schema.Types.ObjectId,
+        ref: 'CategoryMonitoredObject'
+    },
+
     code: {
         type: String,
         required: true
