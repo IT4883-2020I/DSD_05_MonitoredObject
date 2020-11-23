@@ -20,7 +20,7 @@ exports.getAllMonitoredObject = async (req, res) => {
 
 exports.getDetailMonitoredObject = async (req, res) => {
     try {
-        const monitoredObject = MonitoredObjectService.getDetailMonitoredObject(req.params.id);
+        const monitoredObject = await MonitoredObjectService.getDetailMonitoredObject(req.params.id);
 
         res.status(200).json({
             success: true,
@@ -59,7 +59,7 @@ exports.createMonitoredObject = async (req, res) => {
 exports.editMonitoredObject = async (req, res) => {
     try {
         console.log(req.params.id);
-        const monitoredObject = MonitoredObjectService.editMonitoredObject(req.params.id, req.body);
+        const monitoredObject = await MonitoredObjectService.editMonitoredObject(req.params.id, req.body);
 
         res.status(200).json({
             success: true,
@@ -78,7 +78,7 @@ exports.editMonitoredObject = async (req, res) => {
 
 exports.deleteManyMonitoredObjects = async (req, res) => {
     try {
-        const monitoredObjects = MonitoredObjectService.deleteManyMonitoredObjects(req.params.arrayId);
+        const monitoredObjects = await MonitoredObjectService.deleteManyMonitoredObjects(req.params.arrayId);
 
         res.status(200).json({
             success: true,
