@@ -39,7 +39,7 @@ exports.getDetailMonitoredObject = async (req, res) => {
 
 exports.createMonitoredObject = async (req, res) => {
     try {
-        const monitoredObject = MonitoredObjectService.createMonitoredObject(req.body);
+        const monitoredObject = await MonitoredObjectService.createMonitoredObject(req.body);
 
         res.status(200).json({
             success: true,
