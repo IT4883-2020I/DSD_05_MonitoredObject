@@ -8,6 +8,6 @@ const optionConnectDB = {
 };
 
 mongoose // Connect to MongoDB
-    .connect(db, optionConnectDB)
+    .connect(process.env.DATABASE || db, optionConnectDB)
     .then(() => console.log("Kết nối dữ liệu thành công"))
     .catch((err) => console.log(err));
