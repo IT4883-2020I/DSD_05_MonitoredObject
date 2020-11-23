@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const db =`mongodb+srv://thangnguyen:thangnguyen26@cluster0.sxzso.mongodb.net/monitoredObject?retryWrites=true&w=majority`
+const db = `mongodb+srv://thangnguyen:thangnguyen26@cluster0.sxzso.mongodb.net/monitoredObject?retryWrites=true&w=majority`;
 const optionConnectDB = {
     useNewUrlParser: true,
     useUnifiedTopology: true,
