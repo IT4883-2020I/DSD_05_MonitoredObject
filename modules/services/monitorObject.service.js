@@ -53,6 +53,7 @@ exports.createMonitoredObject = async (data) => {
         category: data.category,
         code: data.code,
         name: data.name,
+        managementUnit: data.managementUnit,
         status: data.status,
         description: data.description,
     }
@@ -76,6 +77,7 @@ exports.editMonitoredObject = async (id, data) => {
     monitoredObject.category = data.category ? data.category : monitoredObject.category;
     monitoredObject.code = data.code ? data.code : monitoredObject.code;
     monitoredObject.name = data.name ? data.name : monitoredObject.name;
+    monitoredObject.managementUnit = data.managementUnit ? data.managementUnit : monitoredObject.managementUnit;
     monitoredObject.status = data.status ? data.status : monitoredObject.status;
     monitoredObject.description = data.description ? data.description : monitoredObject.description;
 

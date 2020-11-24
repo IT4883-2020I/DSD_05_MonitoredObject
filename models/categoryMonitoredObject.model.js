@@ -14,11 +14,6 @@ const CategoryMonitoredObjectSchema = new Schema ({
         required: true
     },
 
-    status: {
-        type: String,
-        enum: ["1", "2", "3"]
-    },
-
     description: {
         type: String
     }

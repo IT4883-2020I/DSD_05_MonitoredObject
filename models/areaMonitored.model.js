@@ -14,9 +14,13 @@ const AreaMonitoredSchema = new Schema ({
         required: true
     },
 
+    managementUnit: {
+        type: String,
+    },
+
     status: {
         type: String,
-        enum: ["1", "2", "3"]
+        enum: ["1", "2"]
     },
 
     description: {

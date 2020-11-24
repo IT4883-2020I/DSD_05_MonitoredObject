@@ -29,6 +29,10 @@ const MonitoredObjectSchema = new Schema ({
         required: true
     },
 
+    managementUnit: {
+        type: String,
+    },
+
     status: {
         type: String,
         enum: ["1", "2", "3"]
