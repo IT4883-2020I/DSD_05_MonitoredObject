@@ -59,7 +59,7 @@ exports.editAreaMonitored = async (req, res) => {
 
 exports.deleteAreaMonitored = async (req, res) => {
     try {
-        const arrayId = await AreaMonitoredService.deleteAreaMonitoreds(req.query.arrayId);
+        const arrayId = await AreaMonitoredService.deleteAreaMonitoreds(req.body.arrayId);
 
         res.status(200).json({
             success: true,

@@ -59,7 +59,7 @@ exports.editCategoryMonitoredObject = async (req, res) => {
 
 exports.deleteCategoryMonitoredObject = async (req, res) => {
     try {
-        const arrayId = await CategoryMonitoredObjectService.deleteCategoryMonitoredObject(req.query.arrayId);
+        const arrayId = await CategoryMonitoredObjectService.deleteCategoryMonitoredObject(req.body.arrayId);
 
         res.status(200).json({
             success: true,

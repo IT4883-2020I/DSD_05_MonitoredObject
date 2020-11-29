@@ -78,7 +78,7 @@ exports.editMonitoredObject = async (req, res) => {
 
 exports.deleteManyMonitoredObjects = async (req, res) => {
     try {
-        const monitoredObjects = await MonitoredObjectService.deleteManyMonitoredObjects(req.params.arrayId);
+        const monitoredObjects = await MonitoredObjectService.deleteManyMonitoredObjects(req.body.arrayId);
 
         res.status(200).json({
             success: true,
