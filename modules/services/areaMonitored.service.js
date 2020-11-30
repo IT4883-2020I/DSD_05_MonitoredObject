@@ -17,7 +17,7 @@ exports.getAllAreaMonitored = async (query) => {
         }
 
         if(query.managementUnit) {
-            option.managementUnit = query.managementUnit
+            option.managementUnit = new RegExp(query.managementUnit, 'i');
         }
 
         if(query.status) {
@@ -36,6 +36,7 @@ exports.createAreaMonitored = async (data) => {
     let query = {
         code: data.code,
         name: data.name,
+        address: data.address,
         managementUnit: data.managementUnit,
         status: data.status,
         description: data.description
@@ -50,6 +51,7 @@ exports.editAreaMonitored = async (id, data) => {
     let areaMonitored = await AreaMonitored.findById(id);
     areaMonitored.code = data.code ? data.code : areaMonitored.code;
     areaMonitored.name = data.name ? data.name : areaMonitored.name;
+    areaMonitored.address = data.address ? data.address : areaMonitored.address;
     areaMonitored.managementUnit = data.managementUnit ? data.managementUnit : areaMonitored.managementUnit;
     areaMonitored.status = data.status ? data.status : areaMonitored.status;
     areaMonitored.description = data.description ? data.description : areaMonitored.description;

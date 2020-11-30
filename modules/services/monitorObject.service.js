@@ -22,6 +22,10 @@ exports.getAllMonitoredObject = async (query) => {
             option.name = new RegExp(query.name, 'i');
         }
 
+        if(query.managementUnit) {
+            option.managementUnit = new RegExp(query.managementUnit, 'i')
+        }
+
         return await MonitoredObject
             .paginate(option, {
             limit,
@@ -53,6 +57,7 @@ exports.createMonitoredObject = async (data) => {
         category: data.category,
         code: data.code,
         name: data.name,
+        coordinates: data.coordinates,
         managementUnit: data.managementUnit,
         status: data.status,
         description: data.description,
@@ -77,6 +82,7 @@ exports.editMonitoredObject = async (id, data) => {
     monitoredObject.category = data.category ? data.category : monitoredObject.category;
     monitoredObject.code = data.code ? data.code : monitoredObject.code;
     monitoredObject.name = data.name ? data.name : monitoredObject.name;
+    monitoredObject.coordinates = data.coordinates ? data.coordinates : monitoredObject.coordinates;
     monitoredObject.managementUnit = data.managementUnit ? data.managementUnit : monitoredObject.managementUnit;
     monitoredObject.status = data.status ? data.status : monitoredObject.status;
     monitoredObject.description = data.description ? data.description : monitoredObject.description;

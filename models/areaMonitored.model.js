@@ -14,6 +14,10 @@ const AreaMonitoredSchema = new Schema ({
         required: true
     },
 
+    address: {
+        type: String
+    },
+
     managementUnit: {
         type: String,
     },
