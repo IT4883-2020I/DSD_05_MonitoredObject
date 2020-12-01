@@ -29,9 +29,12 @@ const MonitoredObjectSchema = new Schema ({
         required: true
     },
 
-    coordinates: {
-        longitude: String, // kinh độ
-        latitude: String // vĩ độ
+    lat: { // Vĩ độ
+        type: String,
+    },
+
+    lng: { // Kinh độ
+        type: String,
     },
 
     managementUnit: {

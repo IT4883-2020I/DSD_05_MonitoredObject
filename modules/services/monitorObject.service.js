@@ -57,7 +57,8 @@ exports.createMonitoredObject = async (data) => {
         category: data.category,
         code: data.code,
         name: data.name,
-        coordinates: data.coordinates,
+        lat: data.lat,
+        lng: data.lng,
         managementUnit: data.managementUnit,
         status: data.status,
         description: data.description,
@@ -82,7 +83,8 @@ exports.editMonitoredObject = async (id, data) => {
     monitoredObject.category = data.category ? data.category : monitoredObject.category;
     monitoredObject.code = data.code ? data.code : monitoredObject.code;
     monitoredObject.name = data.name ? data.name : monitoredObject.name;
-    monitoredObject.coordinates = data.coordinates ? data.coordinates : monitoredObject.coordinates;
+    monitoredObject.lat = data.lat ? data.lat : monitoredObject.lat;
+    monitoredObject.lng = data.lng ? data.lng : monitoredObject.lng;
     monitoredObject.managementUnit = data.managementUnit ? data.managementUnit : monitoredObject.managementUnit;
     monitoredObject.status = data.status ? data.status : monitoredObject.status;
     monitoredObject.description = data.description ? data.description : monitoredObject.description;
