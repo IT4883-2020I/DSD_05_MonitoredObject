@@ -59,6 +59,8 @@ exports.createMonitoredObject = async (data) => {
         name: data.name,
         lat: data.lat,
         lng: data.lng,
+        height: data.height,
+        monitoredZone: data.monitoredZone,
         managementUnit: data.managementUnit,
         status: data.status,
         description: data.description,
@@ -85,6 +87,8 @@ exports.editMonitoredObject = async (id, data) => {
     monitoredObject.name = data.name ? data.name : monitoredObject.name;
     monitoredObject.lat = data.lat ? data.lat : monitoredObject.lat;
     monitoredObject.lng = data.lng ? data.lng : monitoredObject.lng;
+    monitoredObject.height = data.height ? data.height : monitoredObject.height;
+    monitoredObject.monitoredZone = data.monitoredZone ? data.monitoredZone : monitoredObject.monitoredZone;
     monitoredObject.managementUnit = data.managementUnit ? data.managementUnit : monitoredObject.managementUnit;
     monitoredObject.status = data.status ? data.status : monitoredObject.status;
     monitoredObject.description = data.description ? data.description : monitoredObject.description;
@@ -105,4 +109,16 @@ exports.deleteManyMonitoredObjects = async (arrayId) => {
     }
 
     return arrayId;
+}
+
+exports.getMonitoredObjectsByZone = async (data) => {
+    const { monitoredZone } = data;
+    const monitoredObjects = await MonitoredObject
+        .find({ monitoredZone: { $in: monitoredZone } })
+        .populate([
+            { path: 'parent' },
+            { path: 'areaMonitored', model: AreaMonitored },
+            { path: 'category', model: CategoryMonitoredObject },
+        ])
+    return monitoredObjects;
 }

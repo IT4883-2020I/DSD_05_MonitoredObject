@@ -17,6 +17,8 @@ const CategoryMonitoredObjectSchema = new Schema ({
     description: {
         type: String
     }
+}, {
+    timestamps: true
 });
 
 CategoryMonitoredObjectSchema.plugin(mongoosePaginate);

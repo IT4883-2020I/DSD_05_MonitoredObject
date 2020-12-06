@@ -23,13 +23,14 @@ const AreaMonitoredSchema = new Schema ({
     },
 
     status: {
-        type: String,
-        enum: ["1", "2"]
+        type: String
     },
 
     description: {
         type: String
     }
+}, {
+    timestamps: true
 });
 
 AreaMonitoredSchema.plugin(mongoosePaginate);

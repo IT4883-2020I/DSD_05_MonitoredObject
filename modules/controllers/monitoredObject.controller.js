@@ -13,7 +13,7 @@ exports.getAllMonitoredObject = async (req, res) => {
         res.status(400).json({
             success: false,
             messages: "Lấy dữ liệu đối tượng giám sát thất bại",
-            error: error
+            error: error.messages
         })
     }
 }
@@ -32,7 +32,7 @@ exports.getDetailMonitoredObject = async (req, res) => {
         res.status(400).json({
             success: false,
             messages: "Lấy chi tiết đối tượng giám sát thất bại",
-            error: err
+            error: err.messages
         })
     }
 }
@@ -51,7 +51,7 @@ exports.createMonitoredObject = async (req, res) => {
         res.status(400).json({
             success: false,
             messages: "Tạo mới đối tượng giám sát thất bại",
-            errors: err
+            errors: err.messages
         })
     }
 }
@@ -71,7 +71,7 @@ exports.editMonitoredObject = async (req, res) => {
         res.status(400).json({
             success: false,
             messages: "Sửa đối tượng giám sát thất bại",
-            errors: err
+            errors: err.messages
         })
     }
 }
@@ -90,7 +90,26 @@ exports.deleteManyMonitoredObjects = async (req, res) => {
         res.status(400).json({
             success: false,
             messages: "Xóa đối tượng giám sát thất bại",
-            errors: err
+            errors: err.messages
+        })
+    }
+}
+
+exports.getMonitoredObjectsByZone = async (req, res) => {
+    try {
+        const monitoredObjects = await MonitoredObjectService.getMonitoredObjectsByZone(req.body);
+        
+        res.status(200).json({
+            success: true,
+            messages: "Lấy đối tượng giám sát theo miền thành công",
+            content: monitoredObjects
+        })
+    }
+    catch (err) {
+        res.status(400).json({
+            success: false,
+            messages: "Lấy đối tượng giám sát theo miền thất bại",
+            errors: err.messages
         })
     }
 }

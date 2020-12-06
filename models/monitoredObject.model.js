@@ -37,18 +37,27 @@ const MonitoredObjectSchema = new Schema ({
         type: String,
     },
 
+    height: { //Độ cao
+        type: Number
+    },
+
+    monitoredZone: [{
+        type: Schema.Types.ObjectId
+    }],
+
     managementUnit: {
         type: String,
     },
 
     status: {
-        type: String,
-        enum: ["1", "2", "3"]
+        type: String
     },
 
     description: {
         type: String
     }
+}, {
+    timestamps: true
 });
 
 MonitoredObjectSchema.plugin(mongoosePaginate);
