@@ -46,7 +46,7 @@ const MonitoredObjectSchema = new Schema ({
     }],
 
     managementUnit: {
-        type: String,
+        type: Schema.Types.ObjectId,
     },
 
     status: {

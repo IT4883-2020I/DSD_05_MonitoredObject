@@ -4,7 +4,7 @@ const MonitoredObjectController = require('../controllers/monitoredObject.contro
 const { auth } = require('../../middlewares');
 
 router.get('/', MonitoredObjectController.getAllMonitoredObject);
-router.post('/get-object-by-zone', MonitoredObjectController.getMonitoredObjectsByZone);
+router.get('/get-object-by-zone', MonitoredObjectController.getMonitoredObjectsByZone);
 router.post('/', MonitoredObjectController.createMonitoredObject);
 router.post('/delete-many-monitored-objects', MonitoredObjectController.deleteManyMonitoredObjects);
 router.patch('/:id', MonitoredObjectController.editMonitoredObject);

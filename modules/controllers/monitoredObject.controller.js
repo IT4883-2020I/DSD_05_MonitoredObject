@@ -97,7 +97,7 @@ exports.deleteManyMonitoredObjects = async (req, res) => {
 
 exports.getMonitoredObjectsByZone = async (req, res) => {
     try {
-        const monitoredObjects = await MonitoredObjectService.getMonitoredObjectsByZone(req.body);
+        const monitoredObjects = await MonitoredObjectService.getMonitoredObjectsByZone(req.query);
         
         res.status(200).json({
             success: true,

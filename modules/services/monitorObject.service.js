@@ -23,7 +23,7 @@ exports.getAllMonitoredObject = async (query) => {
         }
 
         if(query.managementUnit) {
-            option.managementUnit = new RegExp(query.managementUnit, 'i')
+            option.managementUnit = query.managementUnit
         }
 
         return await MonitoredObject
@@ -111,8 +111,8 @@ exports.deleteManyMonitoredObjects = async (arrayId) => {
     return arrayId;
 }
 
-exports.getMonitoredObjectsByZone = async (data) => {
-    const { monitoredZone } = data;
+exports.getMonitoredObjectsByZone = async (query) => {
+    const { monitoredZone } = query;
     const monitoredObjects = await MonitoredObject
         .find({ monitoredZone: { $in: monitoredZone } })
         .populate([
