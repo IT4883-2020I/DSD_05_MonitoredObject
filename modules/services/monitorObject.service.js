@@ -62,6 +62,9 @@ exports.createMonitoredObject = async (data) => {
         height: data.height,
         monitoredZone: data.monitoredZone,
         managementUnit: data.managementUnit,
+        images: data.images,
+        videos: data.videos,
+        drones: data.drones,
         status: data.status,
         description: data.description,
     }
@@ -90,6 +93,9 @@ exports.editMonitoredObject = async (id, data) => {
     monitoredObject.height = data.height ? data.height : monitoredObject.height;
     monitoredObject.monitoredZone = data.monitoredZone ? data.monitoredZone : monitoredObject.monitoredZone;
     monitoredObject.managementUnit = data.managementUnit ? data.managementUnit : monitoredObject.managementUnit;
+    monitoredObject.images = data.images ? data.images : monitoredObject.images;
+    monitoredObject.videos = data.videos ? data.videos : monitoredObject.videos;
+    monitoredObject.drones = data.drones ? data.drones : monitoredObject.drones;
     monitoredObject.status = data.status ? data.status : monitoredObject.status;
     monitoredObject.description = data.description ? data.description : monitoredObject.description;
 

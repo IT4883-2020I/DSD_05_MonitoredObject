@@ -49,6 +49,18 @@ const MonitoredObjectSchema = new Schema ({
         type: Schema.Types.ObjectId,
     },
 
+    images: [{
+        type: Schema.Types.ObjectId,
+    }],
+
+    videos: [{
+        type: Schema.Types.ObjectId,
+    }],
+
+    drones: [{
+        type: Schema.Types.ObjectId,
+    }],
+
     status: {
         type: String
     },
