@@ -66,6 +66,7 @@ exports.createMonitoredObject = async (data) => {
         videos: data.videos,
         drones: data.drones,
         status: data.status,
+        type: data.type,
         description: data.description,
     }
 
@@ -97,6 +98,7 @@ exports.editMonitoredObject = async (id, data) => {
     monitoredObject.videos = data.videos ? data.videos : monitoredObject.videos;
     monitoredObject.drones = data.drones ? data.drones : monitoredObject.drones;
     monitoredObject.status = data.status ? data.status : monitoredObject.status;
+    monitoredObject.type = data.type ? data.type : monitoredObject.type;
     monitoredObject.description = data.description ? data.description : monitoredObject.description;
 
     await monitoredObject.save();
@@ -126,5 +128,17 @@ exports.getMonitoredObjectsByZone = async (query) => {
             { path: 'areaMonitored', model: AreaMonitored },
             { path: 'category', model: CategoryMonitoredObject },
         ])
+    return monitoredObjects;
+}
+
+exports.getMonitoredObjectsByType = async (query) => {
+    const { type } = query;
+    const monitoredObjects = await MonitoredObject.find({ type: type })
+        .populate([
+            { path: 'parent' },
+            { path: 'areaMonitored', model: AreaMonitored },
+            { path: 'category', model: CategoryMonitoredObject },
+        ])
+
     return monitoredObjects;
 }

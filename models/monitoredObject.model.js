@@ -65,6 +65,10 @@ const MonitoredObjectSchema = new Schema ({
         type: String
     },
 
+    type: {
+        type: String,
+    },
+
     description: {
         type: String
     }

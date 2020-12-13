@@ -113,3 +113,22 @@ exports.getMonitoredObjectsByZone = async (req, res) => {
         })
     }
 }
+
+exports.getMonitoredObjectsByType = async (req, res) => {
+    try {
+        const monitoredObjects = await MonitoredObjectService.getMonitoredObjectsByType(req.query);
+        
+        res.status(200).json({
+            success: true,
+            messages: "Lấy đối tượng giám sát theo loại thành công",
+            content: monitoredObjects
+        })
+    }
+    catch (err) {
+        res.status(400).json({
+            success: false,
+            messages: "Lấy đối tượng giám sát theo loại thất bại",
+            errors: err.messages
+        })
+    }
+}
