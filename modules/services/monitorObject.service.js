@@ -22,6 +22,10 @@ exports.getAllMonitoredObject = async (query) => {
             option.name = new RegExp(query.name, 'i');
         }
 
+        if(query.status) {
+            option.status = query.status;
+        }
+
         if(query.managementUnit) {
             option.managementUnit = query.managementUnit
         }
