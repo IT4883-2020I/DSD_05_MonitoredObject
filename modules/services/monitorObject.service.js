@@ -135,6 +135,18 @@ exports.getMonitoredObjectsByZone = async (query) => {
     return monitoredObjects;
 }
 
+exports.getMonitoredObjectsByCategory = (query) => {
+    const { category } = query;
+    const monitoredObjects = await MonitoredObject.find({ category: category })
+        .populate([
+            { path: 'parent' },
+            { path: 'areaMonitored', model: AreaMonitored },
+            { path: 'category', model: CategoryMonitoredObject },
+        ])
+
+    return monitoredObjects;
+}
+
 exports.getMonitoredObjectsByType = async (query) => {
     const { type } = query;
     const monitoredObjects = await MonitoredObject.find({ type: type })
