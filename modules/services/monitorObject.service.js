@@ -133,7 +133,7 @@ exports.getMonitoredObjectsByZone = async (query) => {
     return monitoredObjects;
 }
 
-exports.getMonitoredObjectsByCategory = (query) => {
+exports.getMonitoredObjectsByCategory = async (query) => {
     const { category } = query;
     const monitoredObjects = await MonitoredObject.find({ category: category })
         .populate([
