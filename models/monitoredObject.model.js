@@ -10,8 +10,7 @@ const MonitoredObjectSchema = new Schema ({
     },
 
     areaMonitored: {
-        type: Schema.Types.ObjectId,
-        ref: 'AreaMonitored'
+        type: Schema.Types.ObjectId
     },
 
     category: {
