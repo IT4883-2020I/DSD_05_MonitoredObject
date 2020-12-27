@@ -14,6 +14,10 @@ const CategoryMonitoredObjectSchema = new Schema ({
         required: true
     },
 
+    type: {
+        type: String,
+    },
+
     description: {
         type: String
     }

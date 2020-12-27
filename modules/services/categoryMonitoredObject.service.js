@@ -24,10 +24,18 @@ exports.getAlllCategoryMonitoredObject = async (query) => {
     }
 }
 
+exports.getCategoryByType = async (query) => {
+    const { type } = query;
+
+    const categories = await CategoryMonitoredObject.find( { type: type } );
+    return categories;
+}
+
 exports.createCategoryMonitoredObject = async (data) => {
     let query = {
         code: data.code,
         name: data.name,
+        type: data.type,
         description: data.description,
     }
 
@@ -41,6 +49,7 @@ exports.editCategoryMonitoredObject = async (id, data) => {
 
     category.code = data.code ? data.code : category.code;
     category.name = data.name ? data.name : category.name;
+    category.type = data.type ? data.type : category.type;
     category.description = data.description ? data.description : category.description;
 
     await category.save();

@@ -4,6 +4,7 @@ const CategoryMonitoredObjectController = require('../controllers/categoryMonito
 const { auth } = require('../../middlewares');
 
 router.get('/', CategoryMonitoredObjectController.getAlllCategoryMonitoredObject);
+router.get('/category-by-type', CategoryMonitoredObjectController.getCategoryByType);
 router.post('/', CategoryMonitoredObjectController.createCategoryMonitoredObject);
 router.post('/delete-many-category-monitored-objects', CategoryMonitoredObjectController.deleteCategoryMonitoredObject);
 router.patch('/:id', CategoryMonitoredObjectController.editCategoryMonitoredObject);
