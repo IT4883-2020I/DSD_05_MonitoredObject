@@ -1,9 +1,9 @@
 const { CategoryMonitoredObject } = require('../../models');
 
 exports.getAlllCategoryMonitoredObject = async (query) => {
-    const { limit, page } = query;
+    const { limit, page, type } = query;
     if(!page || !limit) {
-        const categories = await CategoryMonitoredObject.find();
+        const categories = await CategoryMonitoredObject.find({ type: type });
         return categories;
     } else {
         let option = {};
@@ -14,6 +14,10 @@ exports.getAlllCategoryMonitoredObject = async (query) => {
 
         if(query.name) {
             option.name = new RegExp(query.name, 'i');
+        }
+
+        if(query.type) {
+            option.type = query.type;
         }
 
         return await CategoryMonitoredObject
