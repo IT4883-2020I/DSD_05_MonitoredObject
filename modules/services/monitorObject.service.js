@@ -1,10 +1,10 @@
 const  { MonitoredObject, CategoryMonitoredObject, AreaMonitored }  =  require('../../models');
 
 exports.getAllMonitoredObject = async (query) => {
-    const { limit, page } = query;
+    const { limit, page, type } = query;
     if(!page || !limit) {
         const monitored = await MonitoredObject
-            .find()
+            .find({ type: type })
             .populate([
                 { path: 'parent' },
                 { path: 'areaMonitored', model: AreaMonitored },
@@ -28,6 +28,10 @@ exports.getAllMonitoredObject = async (query) => {
 
         if(query.managementUnit) {
             option.managementUnit = query.managementUnit
+        }
+
+        if(query.type) {
+            option.type = query.type;
         }
 
         return await MonitoredObject
