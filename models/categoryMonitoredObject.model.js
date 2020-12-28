@@ -5,8 +5,7 @@ const mongoosePaginate = require('mongoose-paginate-v2');
 const CategoryMonitoredObjectSchema = new Schema ({
 
     code: {
-        type: String,
-        required: true
+        type: String
     },
 
     name: {
