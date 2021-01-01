@@ -10,6 +10,7 @@ exports.getAllMonitoredObject = async (query) => {
                 { path: 'areaMonitored', model: AreaMonitored },
                 { path: 'category', model: CategoryMonitoredObject },
             ])
+            .sort({ 'updatedAt': 'desc' })
         return monitored;
     } else {
         let option = {};
@@ -42,7 +43,8 @@ exports.getAllMonitoredObject = async (query) => {
                 { path: 'parent' },
                 { path: 'areaMonitored', model: AreaMonitored },
                 { path: 'category', model: CategoryMonitoredObject },
-            ]
+            ],
+            sort: { 'updatedAt': 'desc' }
         })
     }
 }

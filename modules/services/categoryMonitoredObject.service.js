@@ -3,7 +3,7 @@ const { CategoryMonitoredObject } = require('../../models');
 exports.getAlllCategoryMonitoredObject = async (query) => {
     const { limit, page, type } = query;
     if(!page || !limit) {
-        const categories = await CategoryMonitoredObject.find({ type: type });
+        const categories = await CategoryMonitoredObject.find({ type: type }).sort({ 'updatedAt': 'desc' });
         return categories;
     } else {
         let option = {};
@@ -23,7 +23,8 @@ exports.getAlllCategoryMonitoredObject = async (query) => {
         return await CategoryMonitoredObject
             .paginate(option, {
                 limit,
-                page
+                page,
+                sort: { 'updatedAt': 'desc' }
             })
     }
 }
