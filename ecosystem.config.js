@@ -1,6 +1,6 @@
 module.exports = {
     apps: [{
-        name: 'SDS 05',
+        name: 'DSD 05',
         script: 'index.js',
 
         // Options reference: https://pm2.io/doc/en/runtime/reference/ecosystem$
