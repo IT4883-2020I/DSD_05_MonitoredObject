@@ -53,7 +53,7 @@ exports.getDetailMonitoredObject = async (id) => {
     const monitoredObject = await MonitoredObject.findById(id)
         .populate([
             { path: 'parent' },
-            { path: 'areaMonitored', model: AreaMonitored },
+            { path: 'areaMonitored' },
             { path: 'category', model: CategoryMonitoredObject },
         ])
 
