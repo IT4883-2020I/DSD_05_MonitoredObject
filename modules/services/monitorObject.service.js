@@ -7,7 +7,7 @@ exports.getAllMonitoredObject = async (query) => {
             .find({ type: type })
             .populate([
                 { path: 'parent' },
-                { path: 'areaMonitored', model: AreaMonitored },
+                { path: 'areaMonitored' },
                 { path: 'category', model: CategoryMonitoredObject },
             ])
             .sort({ 'updatedAt': 'desc' })
@@ -41,7 +41,7 @@ exports.getAllMonitoredObject = async (query) => {
             page,
             populate: [
                 { path: 'parent' },
-                { path: 'areaMonitored', model: AreaMonitored },
+                { path: 'areaMonitored' },
                 { path: 'category', model: CategoryMonitoredObject },
             ],
             sort: { 'updatedAt': 'desc' }
@@ -85,7 +85,7 @@ exports.createMonitoredObject = async (data) => {
     return await MonitoredObject.findById(monitoredObject._id)
         .populate([
             { path: 'parent' },
-            { path: 'areaMonitored', model: AreaMonitored },
+            { path: 'areaMonitored' },
             { path: 'category', model: CategoryMonitoredObject },
         ])
 }
@@ -116,6 +116,7 @@ exports.editMonitoredObject = async (id, data) => {
     return await MonitoredObject.findById(id)
         .populate([
             { path: 'parent' },
+            { path: 'areaMonitored' },
             { path: 'category', model: CategoryMonitoredObject },
         ])
 }
@@ -134,6 +135,7 @@ exports.getMonitoredObjectsByZone = async (query) => {
         .find({ monitoredZone: { $in: monitoredZone } })
         .populate([
             { path: 'parent' },
+            { path: 'areaMonitored' },
             { path: 'category', model: CategoryMonitoredObject },
         ])
     return monitoredObjects;
@@ -144,6 +146,7 @@ exports.getMonitoredObjectsByCategory = async (query) => {
     const monitoredObjects = await MonitoredObject.find({ category: category })
         .populate([
             { path: 'parent' },
+            { path: 'areaMonitored' },
             { path: 'category', model: CategoryMonitoredObject },
         ])
 
@@ -155,6 +158,7 @@ exports.getMonitoredObjectsByType = async (query) => {
     const monitoredObjects = await MonitoredObject.find({ type: type })
         .populate([
             { path: 'parent' },
+            { path: 'areaMonitored' },
             { path: 'category', model: CategoryMonitoredObject },
         ])
 
