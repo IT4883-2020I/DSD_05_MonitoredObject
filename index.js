@@ -17,7 +17,6 @@ const router = express.Router();
 
 router.use("/monitored-object", require("./modules/routers/monitoredObject.router"));
 router.use("/category-monitored-object", require("./modules/routers/categoryMonitoredObject.router"));
-router.use("/area-monitored", require("./modules/routers/areaMonitored.router"));
 
 app.use(router);
 

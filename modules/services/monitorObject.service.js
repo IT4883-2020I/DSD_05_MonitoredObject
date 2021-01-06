@@ -1,4 +1,4 @@
-const  { MonitoredObject, CategoryMonitoredObject, AreaMonitored }  =  require('../../models');
+const  { MonitoredObject, CategoryMonitoredObject }  =  require('../../models');
 
 exports.getAllMonitoredObject = async (query) => {
     const { limit, page, type } = query;
